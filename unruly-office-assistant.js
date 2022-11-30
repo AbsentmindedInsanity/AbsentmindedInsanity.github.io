@@ -167,8 +167,10 @@ export default class UnrulyOfficeAssistant extends HTMLElement {
         }
 
         this.previousTarget = target;
-        this.pauseEvents = true;
-        window.setTimeout(()=>{this.pauseEvents = false}, 3000);
+        if (!this.pauseEvents) {
+            this.pauseEvents = true;
+            window.setTimeout(()=>{this.pauseEvents = false}, 3000);
+        }
     }
 }
 
